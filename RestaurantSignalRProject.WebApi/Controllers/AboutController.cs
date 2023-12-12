@@ -21,7 +21,6 @@ namespace RestaurantSignalRProject.WebApi.Controllers
             _mapper = mapper;
         }
 
-
         [HttpGet]
         [Route("AboutList")]
         public IActionResult AboutList()
@@ -38,7 +37,6 @@ namespace RestaurantSignalRProject.WebApi.Controllers
             return Ok(getAboutDto);
         }
 
-
         [HttpGet]
         [Route("CreateAbout")]
         public IActionResult CreateAbout( CreateAboutDto createAboutDto)
@@ -49,13 +47,14 @@ namespace RestaurantSignalRProject.WebApi.Controllers
         }
 
         [HttpPut]
-        [Route("CreateAbout")]
+        [Route("UpdateAbout")]
         public IActionResult UpdateAbout(UpdateAboutDto updateAboutDto)
         {
             About about = _mapper.Map<About>(updateAboutDto);
             _aboutService.TUpdate(about);
             return Ok("Hakkımızda güncelleme işlemi başarılı.");
         }
+
         [HttpDelete]
         [Route("DeleteAbout")]
         public IActionResult DeleteAbout(int id)
@@ -64,6 +63,5 @@ namespace RestaurantSignalRProject.WebApi.Controllers
             _aboutService.TDelete(entity);
             return Ok("Hakkımızda silme işlemi başarılı.");
         }
-
     }
 }
