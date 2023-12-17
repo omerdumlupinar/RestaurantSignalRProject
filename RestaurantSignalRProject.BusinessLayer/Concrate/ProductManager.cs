@@ -18,6 +18,12 @@ namespace RestaurantSignalRProject.BusinessLayer.Concrate
             _productDal = productDal;
         }
 
+        public List<Product> GetProductsWithCategories()
+        {
+           var values= _productDal.GetProductsWithCategories();
+            return values;
+        }
+
         public void TAdd(Product entity)
         {
             _productDal.Add(entity);

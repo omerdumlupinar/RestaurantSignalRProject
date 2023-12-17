@@ -12,6 +12,7 @@ namespace RestaurantSignalRProject.WebApi.Mapping
                 CreateMap<Product,UpdateProductDto>().ReverseMap();
                 CreateMap<Product,ResultProductDto>().ReverseMap();
                 CreateMap<Product,GetProductDto>().ReverseMap();
+                CreateMap<Product,ResultProductsWithCategories>().ReverseMap();
         }
     }
 }

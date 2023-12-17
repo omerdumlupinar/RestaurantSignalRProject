@@ -24,7 +24,7 @@ namespace RestaurantSignalRProject.WebApi.Controllers
         [Route("DiscountList")]
         public IActionResult DiscountList()
         {
-            GetDiscountDto getDiscountDto= _mapper.Map<GetDiscountDto>(_discountService.TGetListAll());
+            List<GetDiscountDto> getDiscountDto= _mapper.Map<List<GetDiscountDto>>(_discountService.TGetListAll());
             return Ok(getDiscountDto);
         }
 
@@ -32,7 +32,7 @@ namespace RestaurantSignalRProject.WebApi.Controllers
         [Route("GetDiscount")]
         public IActionResult GetDiscount(int id)
         {
-            GetDiscountDto getDiscountDto = _mapper.Map<GetDiscountDto>(_discountService.TGetById(id));
+            List<GetDiscountDto> getDiscountDto = _mapper.Map<List<GetDiscountDto>>(_discountService.TGetById(id));
             return Ok(getDiscountDto);
         }
 

@@ -25,7 +25,7 @@ namespace RestaurantSignalRProject.WebApi.Controllers
         [Route("BookingList")]
         public IActionResult BookingList()
         {
-            GetBookingDto getBookingDto  = _mapper.Map<GetBookingDto>(_bookingService.TGetListAll());
+            List<GetBookingDto> getBookingDto  = _mapper.Map<List<GetBookingDto>>(_bookingService.TGetListAll());
             return Ok(getBookingDto);
         }
 
@@ -33,7 +33,7 @@ namespace RestaurantSignalRProject.WebApi.Controllers
         [Route("GetBooking")]
         public IActionResult GetBooking(int id)
         {
-            GetBookingDto getBookingDto = _mapper.Map<GetBookingDto>(_bookingService.TGetById(id));
+            List<GetBookingDto> getBookingDto = _mapper.Map<List<GetBookingDto>>(_bookingService.TGetById(id));
             return Ok(getBookingDto);
         }
 

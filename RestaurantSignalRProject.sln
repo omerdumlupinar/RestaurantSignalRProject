@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantSignalRProject.WebApi", "RestaurantSignalRProject.WebApi\RestaurantSignalRProject.WebApi.csproj", "{0AAC6A0D-706A-4484-B8FB-D4ADE8144928}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantSignalRProject.WebApi", "RestaurantSignalRProject.WebApi\RestaurantSignalRProject.WebApi.csproj", "{0AAC6A0D-706A-4484-B8FB-D4ADE8144928}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantSignalRProject.WebApp", "RestaurantSignalRProject.WebApp\RestaurantSignalRProject.WebApp.csproj", "{A6FD6A30-FCB0-4C2A-973A-0EFC12DC7A5B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantSignalRProject.EntityLayer", "RestaurantSignalRProject.EntityLayer\RestaurantSignalRProject.EntityLayer.csproj", "{1D78E1BF-95D5-4CDE-B5BA-B0D1F89471C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantSignalRProject.EntityLayer", "RestaurantSignalRProject.EntityLayer\RestaurantSignalRProject.EntityLayer.csproj", "{1D78E1BF-95D5-4CDE-B5BA-B0D1F89471C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantSignalRProject.DataAccessLayer", "RestaurantSignalRProject.DataAccessLayer\RestaurantSignalRProject.DataAccessLayer.csproj", "{793EBE8E-DB7B-4FFA-A469-E52BD1F6F22E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantSignalRProject.DataAccessLayer", "RestaurantSignalRProject.DataAccessLayer\RestaurantSignalRProject.DataAccessLayer.csproj", "{793EBE8E-DB7B-4FFA-A469-E52BD1F6F22E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantSignalRProject.BusinessLayer", "RestaurantSignalRProject.BusinessLayer\RestaurantSignalRProject.BusinessLayer.csproj", "{671D8A60-D082-44C3-A044-F85C7F85BBC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantSignalRProject.BusinessLayer", "RestaurantSignalRProject.BusinessLayer\RestaurantSignalRProject.BusinessLayer.csproj", "{671D8A60-D082-44C3-A044-F85C7F85BBC4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantSignalRProject.DtoLayer", "RestaurantSignalRProject.DtoLayer\RestaurantSignalRProject.DtoLayer.csproj", "{A9675E42-8188-4C8C-9E6F-46196D9B3A72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantSignalRProject.DtoLayer", "RestaurantSignalRProject.DtoLayer\RestaurantSignalRProject.DtoLayer.csproj", "{A9675E42-8188-4C8C-9E6F-46196D9B3A72}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantSignalRProject.WebApp", "RestaurantSignalRProject.WebApp\RestaurantSignalRProject.WebApp.csproj", "{CFE870DD-33C4-44B6-BCA8-2ACC03FE5BDF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +25,6 @@ Global
 		{0AAC6A0D-706A-4484-B8FB-D4ADE8144928}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0AAC6A0D-706A-4484-B8FB-D4ADE8144928}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0AAC6A0D-706A-4484-B8FB-D4ADE8144928}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A6FD6A30-FCB0-4C2A-973A-0EFC12DC7A5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A6FD6A30-FCB0-4C2A-973A-0EFC12DC7A5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A6FD6A30-FCB0-4C2A-973A-0EFC12DC7A5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A6FD6A30-FCB0-4C2A-973A-0EFC12DC7A5B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1D78E1BF-95D5-4CDE-B5BA-B0D1F89471C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1D78E1BF-95D5-4CDE-B5BA-B0D1F89471C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D78E1BF-95D5-4CDE-B5BA-B0D1F89471C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,6 +41,10 @@ Global
 		{A9675E42-8188-4C8C-9E6F-46196D9B3A72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9675E42-8188-4C8C-9E6F-46196D9B3A72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9675E42-8188-4C8C-9E6F-46196D9B3A72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFE870DD-33C4-44B6-BCA8-2ACC03FE5BDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFE870DD-33C4-44B6-BCA8-2ACC03FE5BDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFE870DD-33C4-44B6-BCA8-2ACC03FE5BDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFE870DD-33C4-44B6-BCA8-2ACC03FE5BDF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

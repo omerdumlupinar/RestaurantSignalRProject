@@ -25,7 +25,7 @@ namespace RestaurantSignalRProject.WebApi.Controllers
         [Route("AboutList")]
         public IActionResult AboutList()
         {
-            GetAboutDto getAboutDto = _mapper.Map<GetAboutDto>(_aboutService.TGetListAll());
+            List<GetAboutDto> getAboutDto = _mapper.Map<List<GetAboutDto>>(_aboutService.TGetListAll());
             return Ok(getAboutDto);
         }
 
@@ -33,7 +33,7 @@ namespace RestaurantSignalRProject.WebApi.Controllers
         [Route("GetAbout")]
         public IActionResult GetAbout(int id)
         {
-            GetAboutDto getAboutDto = _mapper.Map<GetAboutDto>(_aboutService.TGetById(id));
+            List<GetAboutDto> getAboutDto = _mapper.Map<List<GetAboutDto>>(_aboutService.TGetById(id));
             return Ok(getAboutDto);
         }
 

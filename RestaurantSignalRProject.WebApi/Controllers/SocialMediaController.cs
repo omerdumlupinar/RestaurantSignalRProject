@@ -25,7 +25,7 @@ namespace RestaurantSignalRProject.WebApi.Controllers
         [Route("SocialMediaList")]
         public IActionResult SocialMediaList()
         {
-            GetSocialMediaDto getSocialMediaDto  = _mapper.Map<GetSocialMediaDto>(_socialMedia.TGetListAll());
+            List<GetSocialMediaDto> getSocialMediaDto  = _mapper.Map<List<GetSocialMediaDto>>(_socialMedia.TGetListAll());
             return Ok(getSocialMediaDto);
         }
 
@@ -33,7 +33,7 @@ namespace RestaurantSignalRProject.WebApi.Controllers
         [Route("GetSocialMedia")]
         public IActionResult GetSocialMedia(int id)
         {
-            GetSocialMediaDto getSocialMediaDto = _mapper.Map<GetSocialMediaDto>(_socialMedia.TGetById(id));
+            List<GetSocialMediaDto> getSocialMediaDto = _mapper.Map<List<GetSocialMediaDto>>(_socialMedia.TGetById(id));
             return Ok(getSocialMediaDto);
         }
 

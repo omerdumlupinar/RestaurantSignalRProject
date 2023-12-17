@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RestaurantSignalRProject.BusinessLayer.Abstract;
 using RestaurantSignalRProject.DtoLayer.AboutDto;
+using RestaurantSignalRProject.DtoLayer.CategoryDto;
 using RestaurantSignalRProject.DtoLayer.ProductDto;
 using RestaurantSignalRProject.EntityLayer.Entities;
 
@@ -35,6 +36,13 @@ namespace RestaurantSignalRProject.WebApi.Controllers
             GetProductDto getProductDto = _mapper.Map<GetProductDto>(_productService.TGetById(id));
             return Ok(getProductDto);
         }
+        [HttpGet]
+        [Route("GetProductsWithCategories")]
+        public IActionResult GetProductsWithCategories()
+        {
+            List<ResultProductsWithCategories> resultProductDtos = _mapper.Map<List<ResultProductsWithCategories>>(_productService.GetProductsWithCategories());
+            return Ok(resultProductDtos);
+        }
 
         [HttpGet]
         [Route("CreateAbout")]
@@ -62,6 +70,7 @@ namespace RestaurantSignalRProject.WebApi.Controllers
             _productService.TDelete(entity);
             return Ok("Hakkımızda silme işlemi başarılı.");
         }
+
 
     }
 }

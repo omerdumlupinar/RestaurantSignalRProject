@@ -24,7 +24,7 @@ namespace RestaurantSignalRProject.WebApi.Controllers
         [Route("FeatureList")]
         public IActionResult FeatureList()
         {
-            GetFeatureDto getFeatureDto  = _mapper.Map<GetFeatureDto>(_featureService.TGetListAll());
+            List<GetFeatureDto> getFeatureDto  = _mapper.Map<List<GetFeatureDto>>(_featureService.TGetListAll());
             return Ok(getFeatureDto);
         }
 
@@ -32,7 +32,7 @@ namespace RestaurantSignalRProject.WebApi.Controllers
         [Route("GetFeature")]
         public IActionResult GetFeature(int id)
         {
-            GetFeatureDto getFeatureDto = _mapper.Map<GetFeatureDto>(_featureService.TGetById(id));
+            List<GetFeatureDto> getFeatureDto = _mapper.Map<List<GetFeatureDto>>(_featureService.TGetById(id));
             return Ok(getFeatureDto);
         }
 

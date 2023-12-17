@@ -25,7 +25,7 @@ namespace RestaurantSignalRProject.WebApi.Controllers
         [Route("CategoryList")]
         public IActionResult CategoryList()
         {
-            GetCategoryDto getCategoryDto  = _mapper.Map<GetCategoryDto>(_categoryService.TGetListAll());
+            List<GetCategoryDto> getCategoryDto  = _mapper.Map<List<GetCategoryDto>>(_categoryService.TGetListAll());
             return Ok(getCategoryDto);
         }
 
@@ -33,7 +33,7 @@ namespace RestaurantSignalRProject.WebApi.Controllers
         [Route("GetCategory")]
         public IActionResult GetCategory(int id)
         {
-            GetCategoryDto getCategoryDto = _mapper.Map<GetCategoryDto>(_categoryService.TGetById(id));
+            List<GetCategoryDto> getCategoryDto = _mapper.Map<List<GetCategoryDto>>(_categoryService.TGetById(id));
             return Ok(getCategoryDto);
         }
 

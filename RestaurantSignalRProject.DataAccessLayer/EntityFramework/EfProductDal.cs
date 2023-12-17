@@ -1,4 +1,5 @@
-﻿using RestaurantSignalRProject.DataAccessLayer.Abstract;
+﻿using Microsoft.EntityFrameworkCore;
+using RestaurantSignalRProject.DataAccessLayer.Abstract;
 using RestaurantSignalRProject.DataAccessLayer.Concrate;
 using RestaurantSignalRProject.DataAccessLayer.Repositories;
 using RestaurantSignalRProject.EntityLayer.Entities;
@@ -14,6 +15,14 @@ namespace RestaurantSignalRProject.DataAccessLayer.EntityFramework
     {
         public EfProductDal(RestaurantSignalRProjectContext context) : base(context)
         {
+        }
+
+        public List<Product> GetProductsWithCategories()
+        {
+            var context = new RestaurantSignalRProjectContext();
+
+            var values = context.Products.Include(x => x.Category).ToList();
+            return values;
         }
     }
 }

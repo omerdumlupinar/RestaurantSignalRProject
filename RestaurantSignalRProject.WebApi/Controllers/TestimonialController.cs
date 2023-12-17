@@ -25,7 +25,7 @@ namespace RestaurantSignalRProject.WebApi.Controllers
         [Route("TestimonialList")]
         public IActionResult TestimonialList()
         {
-            GetTestimonialDto getTestimonialDto  = _mapper.Map<GetTestimonialDto>(_testimonialService.TGetListAll());
+            List<GetTestimonialDto> getTestimonialDto  = _mapper.Map<List<GetTestimonialDto>>(_testimonialService.TGetListAll());
             return Ok(getTestimonialDto);
         }
 
@@ -33,7 +33,7 @@ namespace RestaurantSignalRProject.WebApi.Controllers
         [Route("GetTestimonial")]
         public IActionResult GetTestimonial(int id)
         {
-            GetTestimonialDto getTestimonialDto = _mapper.Map<GetTestimonialDto>(_testimonialService.TGetById(id));
+            List<GetTestimonialDto> getTestimonialDto = _mapper.Map<List<GetTestimonialDto>>(_testimonialService.TGetById(id));
             return Ok(getTestimonialDto);
         }
 
