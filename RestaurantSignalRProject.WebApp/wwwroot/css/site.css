@@ -16,3 +16,24 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+
+.swal2-popup {
+    width: 300px !important; /* Ýstenilen geniþlik */
+    height: 100px !important; /* Ýstenilen yükseklik veya auto býrakabilirsiniz */
+}
+
+/* Modal içeriði için özel boyut */
+.swal2-content {
+    font-size: 14px; /* Ýstenilen font büyüklüðü */
+}
+
+/* Modal baþlýðý için özel boyut */
+.swal2-title {
+    font-size: 16px; /* Ýstenilen baþlýk font büyüklüðü */
+}
+
+/* Modal butonlarý için özel boyut */
+.swal2-actions {
+    font-size: 14px; /* Ýstenilen buton font büyüklüðü */
+}

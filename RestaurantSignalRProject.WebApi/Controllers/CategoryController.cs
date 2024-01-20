@@ -37,7 +37,7 @@ namespace RestaurantSignalRProject.WebApi.Controllers
             return Ok(getCategoryDto);
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("CreateCategory")]
         public IActionResult CreateCategory(CreateCategoryDto createCategoryDto)
         {
