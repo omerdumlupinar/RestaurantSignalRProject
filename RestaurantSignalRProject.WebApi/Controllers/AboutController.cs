@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RestaurantSignalRProject.BusinessLayer.Abstract;
 using RestaurantSignalRProject.DtoLayer.AboutDto;
@@ -37,12 +36,12 @@ namespace RestaurantSignalRProject.WebApi.Controllers
             return Ok(getAboutDto);
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("CreateAbout")]
-        public IActionResult CreateAbout( CreateAboutDto createAboutDto)
+        public IActionResult CreateAbout(CreateAboutDto createAboutDto)
         {
             About about = _mapper.Map<About>(createAboutDto);
-             _aboutService.TAdd(about);
+            _aboutService.TAdd(about);
             return Ok("Hakkımızda ekleme işlemi başarılı.");
         }
 
@@ -59,7 +58,7 @@ namespace RestaurantSignalRProject.WebApi.Controllers
         [Route("DeleteAbout")]
         public IActionResult DeleteAbout(int id)
         {
-            var entity=_aboutService.TGetById(id);
+            var entity = _aboutService.TGetById(id);
             _aboutService.TDelete(entity);
             return Ok("Hakkımızda silme işlemi başarılı.");
         }

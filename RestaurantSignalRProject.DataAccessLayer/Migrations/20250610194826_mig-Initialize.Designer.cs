@@ -12,8 +12,8 @@ using RestaurantSignalRProject.DataAccessLayer.Concrate;
 namespace RestaurantSignalRProject.DataAccessLayer.Migrations
 {
     [DbContext(typeof(RestaurantSignalRProjectContext))]
-    [Migration("20231217191500_migration_relation_Product_Category")]
-    partial class migration_relation_Product_Category
+    [Migration("20250610194826_mig-Initialize")]
+    partial class migInitialize
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
