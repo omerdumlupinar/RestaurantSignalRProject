@@ -25,32 +25,32 @@ namespace RestaurantSignalRProject.WebApi.Controllers
         [Route("SocialMediaList")]
         public IActionResult SocialMediaList()
         {
-            List<GetSocialMediaDto> getSocialMediaDto  = _mapper.Map<List<GetSocialMediaDto>>(_socialMedia.TGetListAll());
-            return Ok(getSocialMediaDto);
+            var resultSocialMediaDto = _mapper.Map<List<ResultSocialMediaDto>>(_socialMedia.TGetListAll());
+            return Ok(resultSocialMediaDto);
         }
 
         [HttpGet]
         [Route("GetSocialMedia")]
         public IActionResult GetSocialMedia(int id)
         {
-            List<GetSocialMediaDto> getSocialMediaDto = _mapper.Map<List<GetSocialMediaDto>>(_socialMedia.TGetById(id));
+            var getSocialMediaDto = _mapper.Map<List<GetSocialMediaDto>>(_socialMedia.TGetById(id));
             return Ok(getSocialMediaDto);
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("CreateSocialMedia")]
-        public IActionResult CreateSocialMedia(CreateSocialMediaDto createSocialMediaDto )
+        public IActionResult CreateSocialMedia(CreateSocialMediaDto createSocialMediaDto)
         {
-            SocialMedia socialMedia  = _mapper.Map<SocialMedia>(createSocialMediaDto);
+            var socialMedia = _mapper.Map<SocialMedia>(createSocialMediaDto);
             _socialMedia.TAdd(socialMedia);
             return Ok("Sosyal Medya ekleme işlemi başarılı.");
         }
 
         [HttpPut]
         [Route("UpdateSocialMedia")]
-        public IActionResult UpdateSocialMedia(UpdateSocialMediaDto updateSocialMediaDto )
+        public IActionResult UpdateSocialMedia(UpdateSocialMediaDto updateSocialMediaDto)
         {
-            SocialMedia socialMedia = _mapper.Map<SocialMedia>(updateSocialMediaDto);
+            var socialMedia = _mapper.Map<SocialMedia>(updateSocialMediaDto);
             _socialMedia.TUpdate(socialMedia);
             return Ok("Sosyal Medya güncelleme işlemi başarılı.");
         }

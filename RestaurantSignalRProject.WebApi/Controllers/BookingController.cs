@@ -25,23 +25,23 @@ namespace RestaurantSignalRProject.WebApi.Controllers
         [Route("BookingList")]
         public IActionResult BookingList()
         {
-            List<GetBookingDto> getBookingDto  = _mapper.Map<List<GetBookingDto>>(_bookingService.TGetListAll());
-            return Ok(getBookingDto);
+            var resultAboutDtos = _mapper.Map<List<ResultAboutDto>>(_bookingService.TGetListAll());
+            return Ok(resultAboutDtos);
         }
 
         [HttpGet]
         [Route("GetBooking")]
         public IActionResult GetBooking(int id)
         {
-            List<GetBookingDto> getBookingDto = _mapper.Map<List<GetBookingDto>>(_bookingService.TGetById(id));
+            var getBookingDto = _mapper.Map<List<GetBookingDto>>(_bookingService.TGetById(id));
             return Ok(getBookingDto);
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("CreateBooking")]
-        public IActionResult CreateBooking(CreateBookingDto createBookingDto )
+        public IActionResult CreateBooking(CreateBookingDto createBookingDto)
         {
-            Booking booking  = _mapper.Map<Booking>(createBookingDto);
+            var booking = _mapper.Map<Booking>(createBookingDto);
             _bookingService.TAdd(booking);
             return Ok("Rezervasyon ekleme işlemi başarılı.");
         }
@@ -50,7 +50,7 @@ namespace RestaurantSignalRProject.WebApi.Controllers
         [Route("UpdateBooking")]
         public IActionResult UpdateBooking(UpdateBookingDto updateBookingDto)
         {
-            Booking booking = _mapper.Map<Booking>(updateBookingDto);
+            var booking = _mapper.Map<Booking>(updateBookingDto);
             _bookingService.TUpdate(booking);
             return Ok("Rezervasyon güncelleme işlemi başarılı.");
         }

@@ -24,23 +24,23 @@ namespace RestaurantSignalRProject.WebApi.Controllers
         [Route("DiscountList")]
         public IActionResult DiscountList()
         {
-            List<GetDiscountDto> getDiscountDto= _mapper.Map<List<GetDiscountDto>>(_discountService.TGetListAll());
-            return Ok(getDiscountDto);
+            var resultDiscountDto = _mapper.Map<List<ResultDiscountDto>>(_discountService.TGetListAll());
+            return Ok(resultDiscountDto);
         }
 
         [HttpGet]
         [Route("GetDiscount")]
         public IActionResult GetDiscount(int id)
         {
-            List<GetDiscountDto> getDiscountDto = _mapper.Map<List<GetDiscountDto>>(_discountService.TGetById(id));
+            var getDiscountDto = _mapper.Map<List<GetDiscountDto>>(_discountService.TGetById(id));
             return Ok(getDiscountDto);
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("CreateDiscount")]
         public IActionResult CreateDiscount(CreateAboutDto createAboutDto)
         {
-            Discount discount  = _mapper.Map<Discount>(createAboutDto);
+            var discount  = _mapper.Map<Discount>(createAboutDto);
             _discountService.TAdd(discount);
             return Ok("İndirim ekleme işlemi başarılı.");
         }
@@ -49,7 +49,7 @@ namespace RestaurantSignalRProject.WebApi.Controllers
         [Route("CreateAbout")]
         public IActionResult UpdateAbout(UpdateAboutDto updateAboutDto)
         {
-            Discount discount = _mapper.Map<Discount>(updateAboutDto);
+            var discount = _mapper.Map<Discount>(updateAboutDto);
             _discountService.TUpdate(discount);
             return Ok("İndirim güncelleme işlemi başarılı.");
         }

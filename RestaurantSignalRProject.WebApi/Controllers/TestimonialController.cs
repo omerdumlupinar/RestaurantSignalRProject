@@ -21,36 +21,37 @@ namespace RestaurantSignalRProject.WebApi.Controllers
             _testimonialService = testimonialService;
             _mapper = mapper;
         }
+
         [HttpGet]
         [Route("TestimonialList")]
         public IActionResult TestimonialList()
         {
-            List<GetTestimonialDto> getTestimonialDto  = _mapper.Map<List<GetTestimonialDto>>(_testimonialService.TGetListAll());
-            return Ok(getTestimonialDto);
+            var resultTestimonialDto = _mapper.Map<List<ResultTestimonialDto>>(_testimonialService.TGetListAll());
+            return Ok(resultTestimonialDto);
         }
 
         [HttpGet]
         [Route("GetTestimonial")]
         public IActionResult GetTestimonial(int id)
         {
-            List<GetTestimonialDto> getTestimonialDto = _mapper.Map<List<GetTestimonialDto>>(_testimonialService.TGetById(id));
+            var getTestimonialDto = _mapper.Map<List<GetTestimonialDto>>(_testimonialService.TGetById(id));
             return Ok(getTestimonialDto);
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("CreateTestimonial")]
-        public IActionResult CreateTestimonial(CreateTestimonialDto createTestimonialDto )
+        public IActionResult CreateTestimonial(CreateTestimonialDto createTestimonialDto)
         {
-            Testimonial testimonial  = _mapper.Map<Testimonial>(createTestimonialDto);
+            var testimonial = _mapper.Map<Testimonial>(createTestimonialDto);
             _testimonialService.TAdd(testimonial);
             return Ok("Müşteri yorum ekleme işlemi başarılı.");
         }
 
         [HttpPut]
         [Route("UpdateTestimonial")]
-        public IActionResult UpdateTestimonial(UpdateTestimonialDto updateTestimonialDto )
+        public IActionResult UpdateTestimonial(UpdateTestimonialDto updateTestimonialDto)
         {
-            Testimonial testimonial = _mapper.Map<Testimonial>(updateTestimonialDto);
+            var testimonial = _mapper.Map<Testimonial>(updateTestimonialDto);
             _testimonialService.TUpdate(testimonial);
             return Ok("Müşteri yorum güncelleme işlemi başarılı.");
         }

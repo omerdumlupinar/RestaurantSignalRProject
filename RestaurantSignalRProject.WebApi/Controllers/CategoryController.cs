@@ -25,15 +25,15 @@ namespace RestaurantSignalRProject.WebApi.Controllers
         [Route("CategoryList")]
         public IActionResult CategoryList()
         {
-            List<GetCategoryDto> getCategoryDto  = _mapper.Map<List<GetCategoryDto>>(_categoryService.TGetListAll());
-            return Ok(getCategoryDto);
+            var resultCategoryDto  = _mapper.Map<List<ResultCategoryDto>>(_categoryService.TGetListAll());
+            return Ok(resultCategoryDto);
         }
 
         [HttpGet]
         [Route("GetCategory")]
         public IActionResult GetCategory(int id)
         {
-            List<GetCategoryDto> getCategoryDto = _mapper.Map<List<GetCategoryDto>>(_categoryService.TGetById(id));
+            var getCategoryDto = _mapper.Map<List<GetCategoryDto>>(_categoryService.TGetById(id));
             return Ok(getCategoryDto);
         }
 
@@ -41,7 +41,7 @@ namespace RestaurantSignalRProject.WebApi.Controllers
         [Route("CreateCategory")]
         public IActionResult CreateCategory(CreateCategoryDto createCategoryDto)
         {
-            Category category = _mapper.Map<Category>(createCategoryDto);
+            var category = _mapper.Map<Category>(createCategoryDto);
             _categoryService.TAdd(category);
             return Ok("Kategory ekleme işlemi başarılı.");
         }
@@ -50,7 +50,7 @@ namespace RestaurantSignalRProject.WebApi.Controllers
         [Route("UpdateCategory")]
         public IActionResult UpdateCategory(UpdateCategoryDto updateCategoryDto)
         {
-            Category category = _mapper.Map<Category>(updateCategoryDto);
+            var category = _mapper.Map<Category>(updateCategoryDto);
             _categoryService.TUpdate(category);
             return Ok("Kategory güncelleme işlemi başarılı.");
         }

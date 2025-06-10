@@ -24,15 +24,15 @@ namespace RestaurantSignalRProject.WebApi.Controllers
         [Route("AboutList")]
         public IActionResult AboutList()
         {
-            List<GetAboutDto> getAboutDto = _mapper.Map<List<GetAboutDto>>(_aboutService.TGetListAll());
-            return Ok(getAboutDto);
+            var resultAboutDtos = _mapper.Map<List<ResultAboutDto>>(_aboutService.TGetListAll());
+            return Ok(resultAboutDtos);
         }
 
         [HttpGet]
         [Route("GetAbout")]
         public IActionResult GetAbout(int id)
         {
-            List<GetAboutDto> getAboutDto = _mapper.Map<List<GetAboutDto>>(_aboutService.TGetById(id));
+            var getAboutDto = _mapper.Map<List<GetAboutDto>>(_aboutService.TGetById(id));
             return Ok(getAboutDto);
         }
 
@@ -40,7 +40,7 @@ namespace RestaurantSignalRProject.WebApi.Controllers
         [Route("CreateAbout")]
         public IActionResult CreateAbout(CreateAboutDto createAboutDto)
         {
-            About about = _mapper.Map<About>(createAboutDto);
+            var about = _mapper.Map<About>(createAboutDto);
             _aboutService.TAdd(about);
             return Ok("Hakkımızda ekleme işlemi başarılı.");
         }
@@ -49,7 +49,7 @@ namespace RestaurantSignalRProject.WebApi.Controllers
         [Route("UpdateAbout")]
         public IActionResult UpdateAbout(UpdateAboutDto updateAboutDto)
         {
-            About about = _mapper.Map<About>(updateAboutDto);
+            var about = _mapper.Map<About>(updateAboutDto);
             _aboutService.TUpdate(about);
             return Ok("Hakkımızda güncelleme işlemi başarılı.");
         }

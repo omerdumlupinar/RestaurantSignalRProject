@@ -24,23 +24,23 @@ namespace RestaurantSignalRProject.WebApi.Controllers
         [Route("ContentList")]
         public IActionResult ContentList()
         {
-            List<GetContentDto> getContentDto= _mapper.Map<List<GetContentDto>>(_contentService.TGetListAll());
-            return Ok(getContentDto);
+            var resultContentDto = _mapper.Map<List<ResultContentDto>>(_contentService.TGetListAll());
+            return Ok(resultContentDto);
         }
 
         [HttpGet]
         [Route("GetContent")]
         public IActionResult GetContent(int id)
         {
-            List<GetContentDto> getContentDto = _mapper.Map<List<GetContentDto>>(_contentService.TGetById(id));
+            var getContentDto = _mapper.Map<List<GetContentDto>>(_contentService.TGetById(id));
             return Ok(getContentDto);
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("CreateContent")]
         public IActionResult CreateContent(CreateContentDto createContentDto)
         {
-            Content content= _mapper.Map<Content>(createContentDto);
+            var content = _mapper.Map<Content>(createContentDto);
             _contentService.TAdd(content);
             return Ok("İletişim ekleme işlemi başarılı.");
         }
@@ -49,7 +49,7 @@ namespace RestaurantSignalRProject.WebApi.Controllers
         [Route("UpdateContent")]
         public IActionResult UpdateContent(UpdateContentDto updateContentDto)
         {
-            Content content = _mapper.Map<Content>(updateContentDto);
+            var content = _mapper.Map<Content>(updateContentDto);
             _contentService.TUpdate(content);
             return Ok("İletişim güncelleme işlemi başarılı.");
         }

@@ -24,32 +24,32 @@ namespace RestaurantSignalRProject.WebApi.Controllers
         [Route("FeatureList")]
         public IActionResult FeatureList()
         {
-            List<GetFeatureDto> getFeatureDto  = _mapper.Map<List<GetFeatureDto>>(_featureService.TGetListAll());
-            return Ok(getFeatureDto);
+            var resultDiscountDto = _mapper.Map<List<ResultFetureDto>>(_featureService.TGetListAll());
+            return Ok(resultDiscountDto);
         }
 
         [HttpGet]
         [Route("GetFeature")]
         public IActionResult GetFeature(int id)
         {
-            List<GetFeatureDto> getFeatureDto = _mapper.Map<List<GetFeatureDto>>(_featureService.TGetById(id));
+            var getFeatureDto = _mapper.Map<List<GetFeatureDto>>(_featureService.TGetById(id));
             return Ok(getFeatureDto);
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("CreateFeature")]
-        public IActionResult CreateFeature(CreateFeatureDto createFeatureDto )
+        public IActionResult CreateFeature(CreateFeatureDto createFeatureDto)
         {
-            Feature feature  = _mapper.Map<Feature>(createFeatureDto);
+            var feature = _mapper.Map<Feature>(createFeatureDto);
             _featureService.TAdd(feature);
             return Ok("Öne çıkan ekleme işlemi başarılı.");
         }
 
         [HttpPut]
         [Route("UpdateFeature")]
-        public IActionResult UpdateFeature(UpdateFeatureDto updateFeatureDto )
+        public IActionResult UpdateFeature(UpdateFeatureDto updateFeatureDto)
         {
-            Feature feature = _mapper.Map<Feature>(updateFeatureDto);
+            var feature = _mapper.Map<Feature>(updateFeatureDto);
             _featureService.TUpdate(feature);
             return Ok("Öne çıkan güncelleme işlemi başarılı.");
         }

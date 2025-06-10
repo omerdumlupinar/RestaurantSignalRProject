@@ -21,11 +21,12 @@ namespace RestaurantSignalRProject.WebApi.Controllers
             _productService = productService;
             _mapper = mapper;
         }
+
         [HttpGet]
         [Route("ProductList")]
         public IActionResult ProductList()
         {
-            GetProductDto getProductDto  = _mapper.Map<GetProductDto>(_productService.TGetListAll());
+            GetProductDto getProductDto = _mapper.Map<GetProductDto>(_productService.TGetListAll());
             return Ok(getProductDto);
         }
 
@@ -36,19 +37,20 @@ namespace RestaurantSignalRProject.WebApi.Controllers
             GetProductDto getProductDto = _mapper.Map<GetProductDto>(_productService.TGetById(id));
             return Ok(getProductDto);
         }
-        [HttpGet]
+
+        [HttpPost]
         [Route("GetProductsWithCategories")]
         public IActionResult GetProductsWithCategories()
         {
-            List<ResultProductsWithCategories> resultProductDtos = _mapper.Map<List<ResultProductsWithCategories>>(_productService.GetProductsWithCategories());
+            var resultProductDtos = _mapper.Map<List<ResultProductsWithCategories>>(_productService.GetProductsWithCategories());
             return Ok(resultProductDtos);
         }
 
         [HttpGet]
         [Route("CreateAbout")]
-        public IActionResult CreateProduct (CreateProductDto createProductDto)
+        public IActionResult CreateProduct(CreateProductDto createProductDto)
         {
-            Product product  = _mapper.Map<Product>(createProductDto);
+            Product product = _mapper.Map<Product>(createProductDto);
             _productService.TAdd(product);
             return Ok("Hakkımızda ekleme işlemi başarılı.");
         }
@@ -70,7 +72,5 @@ namespace RestaurantSignalRProject.WebApi.Controllers
             _productService.TDelete(entity);
             return Ok("Hakkımızda silme işlemi başarılı.");
         }
-
-
     }
 }
